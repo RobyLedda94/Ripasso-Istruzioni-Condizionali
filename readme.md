@@ -1,1 +1,1 @@
-Breve intro alle istruzioni condizionali, e qualce esercizio snack per prendere pratica con gli operatori relazionali e logici, da completare gli esercizi 8 - 9 - 10
+Breve intro alle istruzioni condizionali, e qualche esercizio snack per prendere pratica con gli operatori relazionali e logici, da completare gli esercizi 8 - 9 - 10
