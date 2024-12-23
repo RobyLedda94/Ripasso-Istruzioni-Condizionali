@@ -303,7 +303,7 @@ if (perc_sconto != 0) { // condizione per il calcolo dello sconto se c'e uno sco
     prezzo -= sconto; // aggiorno il prezzo sottraendo lo sconto (sottrszione abbreviata = prezzo = prezzo - sconto)
 }
 
-console.log(`Il prezzo finale con lo sconto applicato è : ${prezzo}€`); // mostro in console il prezzo finale con il template literal
+console.log(`Il prezzo finale con lo sconto applicato è : ${prezzo.toFixed(2)}€`); // mostro in console il prezzo finale con il template literal e il .toFixed(2) per arrotondare in cifre decimali
 
 
 // Esercizio 9: Multiplo di 3 e 5
