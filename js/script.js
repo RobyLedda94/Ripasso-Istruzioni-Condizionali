@@ -306,7 +306,70 @@ if (perc_sconto != 0) { // condizione per il calcolo dello sconto se c'e uno sco
 console.log(`Il prezzo finale con lo sconto applicato è : ${prezzo.toFixed(2)}€`); // mostro in console il prezzo finale con il template literal e il .toFixed(2) per arrotondare in cifre decimali
 
 
-// Esercizio 9: Multiplo di 3 e 5
+// Esercizio 9 simulazione lancio dadi con il metodo Math.random
+
+// dichiaro una variabile a cui assegno il metodo Math.floor che genera un numero randomico da 1 a 6 per l'utente
+let human_dice = Math.floor((Math.random() * 6 + 1));
+console.log(`Il numero genrato per l'utente è : ${human_dice}`);
+// dichiaro una variabile che genera un numero randomico per il computer
+let computer_dice = Math.floor((Math.random() * 6 + 1));
+console.log(`Il numero genrato per il computer è : ${computer_dice}`);
+
+
+if (human_dice > computer_dice) {
+    console.log(`L' utente vince con un punteggio di ${human_dice} contro ${computer_dice}`); // condizione in cui vince l'utente 
+} else if (human_dice < computer_dice) {
+    console.log(`Il computer vince con un punteggio ${computer_dice} conntro ${human_dice}`); // condizione in cui vince il computer
+} else {
+    console.log(`Pareggio! Entrambi hanno ottenuto ${human_dice}`); // altrimenti preggio
+}
+
+
+// Esercizio 10 calcolo del prezzo del biglietto del treno 
+// chiedi all'utente di inserire i kilometri che vuole percorrere e la sua età
+// sulla base di queste informazioni :
+// il prezzo del biglietto è definito in base ai km (0.21 al km)
+// applica uno sconto del 20% per i minorenni
+// applica uno sconto del 40% per gli over 65
+// l'output del prezzo va messo in forma umana con massimo due decimali, per indicare i centesimi sul prezzo
+
+// variabile per chiedere l'età al cliente metodo (parseInt converto da stringa a valore intero)
+let human_age = parseInt(prompt("Inserisci la tua età per calcolare lo sconto sul prezzo del bilietto"), 10);
+// variabile per chiedere al cliente quanti km vuole percorrere (parseInt)
+let human_kilo_meters = parseInt(prompt("Inserisci i kilometri che vuoi percorrere"), 10);
+// prezzo base del biglietto a km
+let ticket_km_price = 0.21;
+// percentuale sconto predefinita
+let perc_discount = 0;
+// dichiaro variabile prezzo vinale a cui assegno valore 0
+let final_price = 0;
+
+// condizione con la quale controllo se l'utente sta inserendo dei dati validi
+if (isNaN(human_age) || isNaN(human_kilo_meters) || human_age <= 0 || human_kilo_meters <= 0) {
+    console.log("Per favore inserisci dai dati validi")
+} else if (human_age < 18) { // sconto per i minorenni
+    perc_discount = 20;
+} else if (human_age > 65) { // sconto per gli over 65
+    perc_discount = 40;
+}
+
+// contollo che ci sia la condizione per effetuare lo sconto
+if (perc_discount != 0) {
+    // dichiaro una variabile in cui stabilisco il prezzo base del biglietto (km percorsi per prezzo base)
+    let base_price = human_kilo_meters * ticket_km_price;
+    // dichiaro una variabile per calocale la percentuale di sconto
+    let discount_amount = base_price * perc_discount / 100;
+    // variabile con il calcolo del prezzo finale 
+    final_price = base_price - discount_amount;
+}
+
+console.log(`Il prezzo finale del biglieto è di : ${final_price.toFixed(2)} €`);
+
+
+
+
+
+// Esercizio 11: Multiplo di 3 e 5
 // Scrivi un programma che chiede all'utente un numero.
 // Stampa:
 
@@ -317,7 +380,7 @@ console.log(`Il prezzo finale con lo sconto applicato è : ${prezzo.toFixed(2)}�
 
 
 
-// Esercizio 10: Controllo della temperatura
+// Esercizio 12: Controllo della temperatura
 // Chiedi all'utente la temperatura attuale.
 // Stampa:
 
@@ -327,7 +390,7 @@ console.log(`Il prezzo finale con lo sconto applicato è : ${prezzo.toFixed(2)}�
 
 
 
-// Esercizio 11: Il semaforo
+// Esercizio 13: Il semaforo
 // Chiedi all'utente di inserire un colore del semaforo (rosso, giallo, verde).
 // Stampa:
 
