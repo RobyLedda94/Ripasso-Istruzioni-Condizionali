@@ -263,7 +263,26 @@ if (isNaN(number)) {
 }
 
 
-// Esercizio 8: Multiplo di 3 e 5
+
+// Esercizio 7 chiedi all'utente 2 parole e controlla qual'è quella più lunga
+
+
+// chiedo all'utente di inserire 2 parole tramite prompt
+let first_word = prompt('Inserisci la prima parola');
+let second_word = prompt('Inserisci la seconda parola');
+
+// Confronto la lunghezza delle 2 parole con .lenght (resriruisce la lunghezza di una stringa ma non solo)
+if (first_word.length > second_word.length) {  // se la prima parola è più lunga enro nell'if
+    console.log('La prima parola inserita è più lunga');
+} else if (first_word.length < second_word.length) { // se la seconda parola è più lunga entro nell'else
+    console.log('La seconda parola è più lunga');
+} else { // altrimenti le due parole sono uguali
+    console.log('Le due parole sono uguali');
+}
+
+
+
+// Esercizio 9: Multiplo di 3 e 5
 // Scrivi un programma che chiede all'utente un numero.
 // Stampa:
 
@@ -274,7 +293,7 @@ if (isNaN(number)) {
 
 
 
-// Esercizio 9: Controllo della temperatura
+// Esercizio 10: Controllo della temperatura
 // Chiedi all'utente la temperatura attuale.
 // Stampa:
 
@@ -284,7 +303,7 @@ if (isNaN(number)) {
 
 
 
-// Esercizio 10: Il semaforo
+// Esercizio 11: Il semaforo
 // Chiedi all'utente di inserire un colore del semaforo (rosso, giallo, verde).
 // Stampa:
 
