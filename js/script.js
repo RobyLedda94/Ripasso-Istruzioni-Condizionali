@@ -281,6 +281,30 @@ if (first_word.length > second_word.length) {  // se la prima parola è più lun
 }
 
 
+// Esercizio 8 Calcolo lo sconto in base all'età dell'utente
+
+// chiedo all'utente di inserire la sua età
+let eta = parseInt(prompt('Inserisci la tua età per il calcolo dello sconto'), 10);
+// variabile a cui assegno il prezzo iniziale
+let prezzo = 100;
+// variabile a cui assegno una percentuale di sconto predefinita
+let perc_sconto = 0;
+
+
+// creo condizione in cui verifico l'età inserita per applicare lo sconto in base all'eta
+if (eta < 18) { // se minori di 18 anni
+    perc_sconto = 10; // lo sconto sarà del 10%
+} else if (eta > 65) { // altrimenti se over 65
+    perc_sconto = 20; // sconto pari al 20%
+}
+
+if (perc_sconto != 0) { // condizione per il calcolo dello sconto se c'e uno sconto applicabile
+    let sconto = prezzo * perc_sconto / 100; // calcolo dello sconto
+    prezzo -= sconto; // aggiorno il prezzo sottraendo lo sconto (sottrszione abbreviata = prezzo = prezzo - sconto)
+}
+
+console.log(`Il prezzo finale con lo sconto applicato è : ${prezzo}€`); // mostro in console il prezzo finale con il template literal
+
 
 // Esercizio 9: Multiplo di 3 e 5
 // Scrivi un programma che chiede all'utente un numero.
