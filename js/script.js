@@ -285,8 +285,8 @@ if (first_word.length > second_word.length) {  // se la prima parola è più lun
 
 // chiedo all'utente di inserire la sua età
 let eta = parseInt(prompt('Inserisci la tua età per il calcolo dello sconto'), 10);
-// variabile a cui assegno il prezzo iniziale
-let prezzo = 100;
+// chiedo all'utente di inserire un prezzo
+let prezzo = parseInt(prompt('Inserisci il prezzo'), 10);
 // variabile a cui assegno una percentuale di sconto predefinita
 let perc_sconto = 0;
 
