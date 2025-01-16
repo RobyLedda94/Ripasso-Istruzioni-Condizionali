@@ -159,16 +159,28 @@ age_btn.addEventListener('click', function () {
     console.log(age_input);
     // recupero l'elemento che genera il messaggio all'utente
     let age_message = document.getElementById('age-message');
+    // Svuoto il campo input
+    document.getElementById('age-input').value = ''; // Imposta il valore dell'input a una stringa vuota
+    // Svuoto tutte le classi dell'elemento messaggio
+    age_message.className = ''; // Rimuove tutte le classi eventualmente presenti
     // istruzione condizionale 1 - controllo che l'utente sta inserendo dei dati valido (vuoto non valido - minore uguale a zero non valido)
     if (isNaN(age_input) || age_input <= 0) {
+        // inietto nell'elemento messaggio la seguente stringa
         age_message.innerText = 'Perfavore inserisci un dato valido';
+        // proprietà classList per aggiungere all'elemento una classe 
+        age_message.classList.add('text-warning');
+    } else if (age_input < 18) {
+        age_message.innerText = "Hai meno di 18 anni non puoi guidare";
         age_message.classList.add('text-danger');
-        console.log(age_message.innerText)
-    }
+    } else {
+        age_message.innerText = "Hai l'età giusta per guidare";
+        age_message.classList.add('text-green');
+    };
 
 });
 
 
+// ESERCIZIO ETA FATTO CON IL PROMPT
 
 // dichiaro una variabile dove chiedo tramite ptompt l'età all'utente
 // let age = parseInt(prompt("Inserisci la tua età"), 10);
@@ -182,9 +194,43 @@ age_btn.addEventListener('click', function () {
 //     console.log("Hai l'età giusta per guidare");
 // }
 
-
+// -----------------------------------------------------------------------------------------------------------------
 
 // ESERCIZIO 2 PARI O DISPARI
+
+// Recupero il bottone da DOM
+let pari_dispari_btn = document.getElementById('pari-dispari-btn');
+// Evento click per il bottone pari-dispari
+pari_dispari_btn.addEventListener('click', function () {
+    // recuopero il campo input converto il valore restituito in numero e catturo il dato inserito dall'utente
+    let pari_dispari_input = parseInt(document.getElementById('pari-dispari').value);
+    // recuopero l'elemento che mostra un messaggio
+    let pari_dispari_message = document.getElementById('pari-dispari-message');
+    // condizione di controllo del dato attraverso l'utilizzo dell'operatore unario !not e poratore logico &&
+    // svuoto il valore del campo input
+    document.getElementById('pari-dispari').value = '';
+    // svuoto le classi dell'elemento messaggio
+    pari_dispari_message.classList = '';
+    if (isNaN(pari_dispari_input) || pari_dispari_input < 0) {
+        pari_dispari_message.innerText = "Attenzione inserisci un dato valido";
+        pari_dispari_message.classList.add('text-warning');
+
+    } else if (pari_dispari_input % 2 === 0) {
+        pari_dispari_message.innerText = "Il numero inserito è pari";
+        pari_dispari_message.classList.add('text-green');
+
+
+    } else {
+        pari_dispari_message.innerText = "Il numero inserito è dispari";
+        pari_dispari_message.classList.add('text-danger');
+
+
+    };
+
+
+});
+
+// ESERCIZIO SVOLTO CON IL PROMPT
 
 // dichiaro una variabile dove chiedo all'utente di inserire un numero tramite prompt
 
