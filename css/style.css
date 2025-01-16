@@ -11,3 +11,8 @@
 .text-green {
     color: rgb(7, 119, 7);
 }
+
+.underline {
+    text-decoration: underline;
+    color: red;
+}

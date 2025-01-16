@@ -155,7 +155,7 @@ let age_btn = document.getElementById('age-btn');
 // metto il bottone che ho recuperato in attesa di un evento click
 age_btn.addEventListener('click', function () {
     // all'interno dell'evento recupero l'input che converto in valore numerico e catturo il valore inserito dall'utente tramite il .value
-    let age_input = parseInt(document.getElementById('age-input').value);
+    let age_input = parseInt(document.getElementById('age-input').value, 10);
     console.log(age_input);
     // recupero l'elemento che genera il messaggio all'utente
     let age_message = document.getElementById('age-message');
@@ -203,7 +203,7 @@ let pari_dispari_btn = document.getElementById('pari-dispari-btn');
 // Evento click per il bottone pari-dispari
 pari_dispari_btn.addEventListener('click', function () {
     // recuopero il campo input converto il valore restituito in numero e catturo il dato inserito dall'utente
-    let pari_dispari_input = parseInt(document.getElementById('pari-dispari').value);
+    let pari_dispari_input = parseInt(document.getElementById('pari-dispari').value, 10);
     // recuopero l'elemento che mostra un messaggio
     let pari_dispari_message = document.getElementById('pari-dispari-message');
     // condizione di controllo del dato attraverso l'utilizzo dell'operatore unario !not e poratore logico &&
@@ -211,23 +211,19 @@ pari_dispari_btn.addEventListener('click', function () {
     document.getElementById('pari-dispari').value = '';
     // svuoto le classi dell'elemento messaggio
     pari_dispari_message.classList = '';
+    // consdizione di controllo sul dato inserito
     if (isNaN(pari_dispari_input) || pari_dispari_input < 0) {
         pari_dispari_message.innerText = "Attenzione inserisci un dato valido";
         pari_dispari_message.classList.add('text-warning');
-
+        // se pari eseguo il seguente blocco di codice
     } else if (pari_dispari_input % 2 === 0) {
         pari_dispari_message.innerText = "Il numero inserito è pari";
         pari_dispari_message.classList.add('text-green');
-
-
+        // atrimenti condizione dispari
     } else {
         pari_dispari_message.innerText = "Il numero inserito è dispari";
         pari_dispari_message.classList.add('text-danger');
-
-
     };
-
-
 });
 
 // ESERCIZIO SVOLTO CON IL PROMPT
@@ -244,8 +240,42 @@ pari_dispari_btn.addEventListener('click', function () {
 //     console.log('Il numero che hai inserito è dispari');
 // }
 
+// ---------------------------------------------------------------------------------
+
 
 // ERECIZIO 3 NUMERO PIU GRANDE
+
+// Recuperiamo il bottone che gestirà il nostro evento
+let maggiore_minore_btn = document.getElementById('maggiore-minore-btn');
+
+maggiore_minore_btn.addEventListener('click', function () {
+    // recupero gli elementi input catturo il valore inserito dall'utente e converto il dato in valore numerico
+    let primo_valore_input = parseInt(document.getElementById('primo-valore').value, 10);
+    let secondo_valore_input = parseInt(document.getElementById('secondo-valore').value, 10);
+    // recupero l'elemento che mostra il messaggio che varia in base alla condizione
+    let maggiore_minore_messaggio = document.getElementById('maggiore-minore');
+    // condizione di controllo
+    // svuoto le classi del messaggio
+    maggiore_minore_messaggio.classList = '';
+    if (isNaN(primo_valore_input) || isNaN(secondo_valore_input) || primo_valore_input < 0 || secondo_valore_input < 0) {
+        maggiore_minore_messaggio.innerText = 'Inserisci valori numeri validi';
+        maggiore_minore_messaggio.classList.add('text-warning');
+        // condizione valore 1 maggiore
+    } else if (primo_valore_input > secondo_valore_input) {
+        maggiore_minore_messaggio.innerText = "Il primo valore è maggiore del secondo valore";
+        maggiore_minore_messaggio.classList.add('underline');
+        // condizione valore 2 maggiore
+    } else if (primo_valore_input < secondo_valore_input) {
+        maggiore_minore_messaggio.innerText = "Il secondo valore è maggiore del primo valore"
+        maggiore_minore_messaggio.classList.add('underline');
+        // condizione i valori sono uguali
+    } else {
+        maggiore_minore_messaggio.innerText = "I numeri inseriti sono pari"
+        maggiore_minore_messaggio.classList.add('text-green');
+
+    }
+
+});
 
 // dichiaro le variabili con cui chiedo all'utente di inserire un valore numerico tramite il prompt (converto il valore in numerico con il parseInt)
 // let num_one = parseInt(prompt('Inserisci il primo numero'), 10);
