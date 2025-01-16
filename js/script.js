@@ -149,15 +149,38 @@
 
 // ESERCIZIO 1 ETA' PER GUIDARE
 
+// recupero il bottone attraverso il suo id dal DOM
+let age_btn = document.getElementById('age-btn');
+
+// metto il bottone che ho recuperato in attesa di un evento click
+age_btn.addEventListener('click', function () {
+    // all'interno dell'evento recupero l'input che converto in valore numerico e catturo il valore inserito dall'utente tramite il .value
+    let age_input = parseInt(document.getElementById('age-input').value);
+    console.log(age_input);
+    // recupero l'elemento che genera il messaggio all'utente
+    let age_message = document.getElementById('age-message');
+    // istruzione condizionale 1 - controllo che l'utente sta inserendo dei dati valido (vuoto non valido - minore uguale a zero non valido)
+    if (isNaN(age_input) || age_input <= 0) {
+        age_message.innerText = 'Perfavore inserisci un dato valido';
+        age_message.classList.add('text-danger');
+        console.log(age_message.innerText)
+    }
+
+});
+
+
 
 // dichiaro una variabile dove chiedo tramite ptompt l'età all'utente
-let age = parseInt(prompt("Inserisci la tua età"), 10);
+// let age = parseInt(prompt("Inserisci la tua età"), 10);
 
-if (age < 18) { // condizione in cui l'utente se ha meno di 18 anni non può guidate
-    console.log('Hai meno di 18 anni non puoi guidare');
-} else { // altrimenti se ha 18 anni o più puo guidare
-    console.log("Hai l'età giusta per guidare");
-}
+// // esguo un controllo sul dato inserito dall'utente
+// if (isNaN(age) || age <= 0) {
+//     console.log("Per favore inserire un dato valido");
+// } else if (age < 18) { // condizione in cui l'utente se ha meno di 18 anni non può guidate
+//     console.log("Hai meno di 18 anni non puoi guidare");
+// } else { // altrimenti se ha 18 anni o più puo guidare
+//     console.log("Hai l'età giusta per guidare");
+// }
 
 
 
@@ -165,84 +188,84 @@ if (age < 18) { // condizione in cui l'utente se ha meno di 18 anni non può gui
 
 // dichiaro una variabile dove chiedo all'utente di inserire un numero tramite prompt
 
-let num = parseInt(prompt('Inserisci un numero'), 10);
+// let num = parseInt(prompt('Inserisci un numero'), 10);
 
-if (!num && num !== 0) { // condizione in cui controllo che l'utente abbia inserito un numero valido tramite forma contratta dell'operatore unario !not (entra in questo blocco se è vero che il valore inserito non è un numero) e controllo anche che lo zero sia un numro valido
-    console.log('Perfavore inserisci un numero valido.')
-} else if (num % 2 === 0) {
-    console.log('Il numero che hai inserito è pari.')
-} else {
-    console.log('Il numero che hai inserito è dispari.')
-}
+// if (!num && num !== 0) { // condizione in cui controllo che l'utente abbia inserito un numero valido tramite forma contratta dell'operatore unario !not (entra in questo blocco se è vero che il valore inserito non è un numero) e controllo anche che lo zero sia un numro valido
+//     console.log('Perfavore inserisci un numero valido.');
+// } else if (num % 2 === 0) {
+//     console.log('Il numero che hai inserito è pari.');
+// } else {
+//     console.log('Il numero che hai inserito è dispari');
+// }
 
 
 // ERECIZIO 3 NUMERO PIU GRANDE
 
 // dichiaro le variabili con cui chiedo all'utente di inserire un valore numerico tramite il prompt (converto il valore in numerico con il parseInt)
-let num_one = parseInt(prompt('Inserisci il primo numero'), 10);
-let num_two = parseInt(prompt('Inserisci il secondo numero'), 10);
+// let num_one = parseInt(prompt('Inserisci il primo numero'), 10);
+// let num_two = parseInt(prompt('Inserisci il secondo numero'), 10);
 
-if (!num_one && !num_two) { // condizione in cui controllo se l'utente ha inserito un valore valido al primo numero and secondo 
-    console.log('Perfavore inserisci un numero valido');
-} else if (num_one > num_two) { // condizione se il primo numero è maggiore entro in questo blocco
-    console.log('Il primo valore è maggiore');
-} else if (num_one < num_two) { // condizione se il secondo numero è maggiore entro in questo blocco
-    console.log('Il secondo valore è maggiore');
-} else { // altrimenti se sono uguali entro in questo blocco
-    console.log('I numeri inseriti sono uguali');
-}
+// if (!num_one && !num_two) { // condizione in cui controllo se l'utente ha inserito un valore valido al primo numero and secondo
+//     console.log('Perfavore inserisci un numero valido');
+// } else if (num_one > num_two) { // condizione se il primo numero è maggiore entro in questo blocco
+//     console.log('Il primo valore è maggiore');
+// } else if (num_one < num_two) { // condizione se il secondo numero è maggiore entro in questo blocco
+//     console.log('Il secondo valore è maggiore');
+// } else { // altrimenti se sono uguali entro in questo blocco
+//     console.log('I numeri inseriti sono uguali');
+// }
 
 
 // ESERCIZIO 4 CALCOLATRICE SEMPLICE
 
 // dichiaro le variabili con cui chiedo all'utente di inserire un valore numerico tramite prompt (e utilizzo il parseInt per conertire il tipo di valore inserito dall'utente in numero)
 
-let somma_num_one = parseInt(prompt('Inserisci il primo valore numerico'), 10);
-let somma_num_two = parseInt(prompt('Inserisci il secondo valore numerico'), 10);
+// let somma_num_one = parseInt(prompt('Inserisci il primo valore numerico'), 10);
+// let somma_num_two = parseInt(prompt('Inserisci il secondo valore numerico'), 10);
 
-if (isNaN(somma_num_one) || isNaN(somma_num_two)) { // nella condizione utilizzo isNAN() per verificare che i valori immesso sono numerici ( in questa condizione se è vero che non sono numerici entro nel blocco)
-    console.log('Inserisci dei valori validi');
-} else { // altrimenti entro in questo blocco dell'operaione somma
-    let risultato_somma = somma_num_one + somma_num_two; // dichiarazione della variabile che contiene il risultato della somma 
-    console.log('Il risultato è' + ' ' + risultato_somma);
-}
+// if (isNaN(somma_num_one) || isNaN(somma_num_two)) { // nella condizione utilizzo isNAN() per verificare che i valori immesso sono numerici ( in questa condizione se è vero che non sono numerici entro nel blocco)
+//     console.log('Inserisci dei valori validi');
+// } else { // altrimenti entro in questo blocco dell'operaione somma
+//     let risultato_somma = somma_num_one + somma_num_two; // dichiarazione della variabile che contiene il risultato della somma
+//     console.log('Il risultato è' + ' ' + risultato_somma);
+// }
 
 
 // ESERCIZIO NUMERO 5 VOTO SCOLASTICO
-// "Insufficiente" se il voto è tra 1 e 5,
+// "Insufficiente" se il voto è tra 0 e 5,
 // "Sufficiente" se il voto è 6,
 // "Buono" se il voto è 7 o 8,
 // "Ottimo" se il voto è 9 o 10.
 
 // dichiaro una variabile in cui chiedo di inserire un valore nuemrico tamite il prompt
-let voto = parseInt(prompt('Inserisci il voto un feedback sulla valutazione'), 10);
+// let voto = parseInt(prompt('Inserisci il voto un feedback sulla valutazione'), 10);
 
-if (isNaN(voto)) { // controllo se l'utente ha inserito un dato valido (numerico)
-    console.log('Per favore, inserisci un dato valido.');
-} else if (voto >= 0 && voto <= 5) { // condizione se il voto ha un range tra 0 e 5 risulta insufficente
-    console.log('Il tuo voto è insufficente');
-} else if (voto === 6) { // se il voto è 6 risulta suggicente
-    console.log('Il tuo voto è sufficente');
-} else if (voto === 7 || voto === 8) { // se il voto ha un range tra 7 e 8 risulta buono (|| almeno una delle due condizioni risulta vera)
-    console.log('Il tuo voto è buono');
-} else if (voto === 9 || voto === 10) { // se il voto ha un range tra 9 e 10 risulta ottimo (|| almeno una delle due condizioni risulta vera)
-    console.log('Il tuo voto è ottimo');
-} else { // altrimenti il voto non esiste (esempio inserisco da 11 in su)
-    console.log('Il voto inserito non è valdo');
-}
+// if (isNaN(voto)) { // controllo se l'utente ha inserito un dato valido (numerico)
+//     console.log('Per favore, inserisci un dato valido.');
+// } else if (voto >= 0 && voto <= 5) { // condizione se il voto ha un range tra 0 e 5 risulta insufficente
+//     console.log('Il tuo voto è insufficente');
+// } else if (voto === 6) { // se il voto è 6 risulta suggicente
+//     console.log('Il tuo voto è sufficente');
+// } else if (voto === 7 || voto === 8) { // se il voto ha un range tra 7 e 8 risulta buono (|| almeno una delle due condizioni risulta vera)
+//     console.log('Il tuo voto è buono');
+// } else if (voto === 9 || voto === 10) { // se il voto ha un range tra 9 e 10 risulta ottimo (|| almeno una delle due condizioni risulta vera)
+//     console.log('Il tuo voto è ottimo');
+// } else { // altrimenti il voto non esiste (esempio inserisco da 11 in su)
+//     console.log('Il voto inserito non è valdo');
+// }
 
 
 // ESERCIZIO 6 ACCESSO AL SITO
 
 // Dichiaro le variabili per chiedere all'utente user_name e password, (restituisce valori formato striga)
-let user_name = prompt('Inserisci il tuo nome utente');
-let password = prompt('Inserisci la password');
+// let user_name = prompt('Inserisci il tuo nome utente');
+// let password = prompt('Inserisci la password');
 
-if (user_name === 'admin' && password === '1234') { // condizione in cui controllo con uguaglianza stretta valore e tipo di dato
-    console.log('Accesso consentito');
-} else {
-    console.log('Accesso negato');
-}
+// if (user_name === 'admin' && password === '1234') { // condizione in cui controllo con uguaglianza stretta valore e tipo di dato
+//     console.log('Accesso consentito');
+// } else {
+//     console.log('Accesso negato');
+// }
 
 
 // Esercizio 7 NUMERI POSITIVI E NEGATIVI
@@ -250,17 +273,17 @@ if (user_name === 'admin' && password === '1234') { // condizione in cui control
 // "Il numero è negativo" se è minore di 0,
 // "Il numero è zero" se è uguale a 0.
 
-let number = parseInt(prompt('Inserisci un numero verifichiamo se è positivo o negativo'), 10);
+// let number = parseInt(prompt('Inserisci un numero verifichiamo se è positivo o negativo'), 10);
 
-if (isNaN(number)) {
-    console.log('Inserisci un numero valido');
-} else if (number > 0) {
-    console.log('Il numero è positivo');
-} else if (number < 0) {
-    console.log('Il numero è negativo');
-} else {
-    console.log('Il numero è uguale a 0')
-}
+// if (isNaN(number)) {
+//     console.log('Inserisci un numero valido');
+// } else if (number > 0) {
+//     console.log('Il numero è positivo');
+// } else if (number < 0) {
+//     console.log('Il numero è negativo');
+// } else {
+//     console.log('Il numero è uguale a 0')
+// }
 
 
 
@@ -268,64 +291,64 @@ if (isNaN(number)) {
 
 
 // chiedo all'utente di inserire 2 parole tramite prompt
-let first_word = prompt('Inserisci la prima parola');
-let second_word = prompt('Inserisci la seconda parola');
+// let first_word = prompt('Inserisci la prima parola');
+// let second_word = prompt('Inserisci la seconda parola');
 
-// Confronto la lunghezza delle 2 parole con .lenght (resriruisce la lunghezza di una stringa ma non solo)
-if (first_word.length > second_word.length) {  // se la prima parola è più lunga enro nell'if
-    console.log('La prima parola inserita è più lunga');
-} else if (first_word.length < second_word.length) { // se la seconda parola è più lunga entro nell'else
-    console.log('La seconda parola è più lunga');
-} else { // altrimenti le due parole sono uguali
-    console.log('Le due parole sono uguali');
-}
+// // Confronto la lunghezza delle 2 parole con .lenght (resriruisce la lunghezza di una stringa ma non solo)
+// if (first_word.length > second_word.length) {  // se la prima parola è più lunga enro nell'if
+//     console.log('La prima parola inserita è più lunga');
+// } else if (first_word.length < second_word.length) { // se la seconda parola è più lunga entro nell'else
+//     console.log('La seconda parola è più lunga');
+// } else { // altrimenti le due parole sono uguali
+//     console.log('Le due parole sono uguali');
+// }
 
 
 // Esercizio 8 Calcolo lo sconto in base all'età dell'utente
 
 // chiedo all'utente di inserire la sua età
-let eta = parseInt(prompt('Inserisci la tua età per il calcolo dello sconto'), 10);
+// let eta = parseInt(prompt('Inserisci la tua età per il calcolo dello sconto'), 10);
 // chiedo all'utente di inserire un prezzo
-let prezzo = parseInt(prompt('Inserisci il prezzo'), 10);
+// let prezzo = parseInt(prompt('Inserisci il prezzo'), 10);
 // variabile a cui assegno una percentuale di sconto predefinita
-let perc_sconto = 0;
+// let perc_sconto = 0;
 
 
-// creo condizione in cui verifico l'età inserita per applicare lo sconto in base all'eta
-if (eta < 18) { // se minori di 18 anni
-    perc_sconto = 10; // lo sconto sarà del 10%
-} else if (eta > 65) { // altrimenti se over 65
-    perc_sconto = 20; // sconto pari al 20%
-}
+// // creo condizione in cui verifico l'età inserita per applicare lo sconto in base all'eta
+// if (eta < 18) { // se minori di 18 anni
+//     perc_sconto = 10; // lo sconto sarà del 10%
+// } else if (eta > 65) { // altrimenti se over 65
+//     perc_sconto = 20; // sconto pari al 20%
+// }
 
-if (perc_sconto != 0) { // condizione per il calcolo dello sconto se c'e uno sconto applicabile
-    let sconto = prezzo * perc_sconto / 100; // calcolo dello sconto
-    prezzo -= sconto; // aggiorno il prezzo sottraendo lo sconto (sottrszione abbreviata = prezzo = prezzo - sconto)
-}
+// if (perc_sconto != 0) { // condizione per il calcolo dello sconto se c'e uno sconto applicabile
+//     let sconto = prezzo * perc_sconto / 100; // calcolo dello sconto
+//     prezzo -= sconto; // aggiorno il prezzo sottraendo lo sconto (sottrszione abbreviata = prezzo = prezzo - sconto)
+// }
 
-console.log(`Il prezzo finale con lo sconto applicato è : ${prezzo.toFixed(2)}€`); // mostro in console il prezzo finale con il template literal e il .toFixed(2) per arrotondare in cifre decimali
-
-
-// Esercizio 9 simulazione lancio dadi con il metodo Math.random
-
-// dichiaro una variabile a cui assegno il metodo Math.floor che genera un numero randomico da 1 a 6 per l'utente
-let human_dice = Math.floor((Math.random() * 6 + 1));
-console.log(`Il numero genrato per l'utente è : ${human_dice}`);
-// dichiaro una variabile che genera un numero randomico per il computer
-let computer_dice = Math.floor((Math.random() * 6 + 1));
-console.log(`Il numero genrato per il computer è : ${computer_dice}`);
+// console.log(`Il prezzo finale con lo sconto applicato è : ${prezzo.toFixed(2)}€`); // mostro in console il prezzo finale con il template literal e il .toFixed(2) per arrotondare in cifre decimali
 
 
-if (human_dice > computer_dice) {
-    console.log(`L' utente vince con un punteggio di ${human_dice} contro ${computer_dice}`); // condizione in cui vince l'utente 
-} else if (human_dice < computer_dice) {
-    console.log(`Il computer vince con un punteggio ${computer_dice} conntro ${human_dice}`); // condizione in cui vince il computer
-} else {
-    console.log(`Pareggio! Entrambi hanno ottenuto ${human_dice}`); // altrimenti preggio
-}
+// // Esercizio 9 simulazione lancio dadi con il metodo Math.random
+
+// // dichiaro una variabile a cui assegno il metodo Math.floor che genera un numero randomico da 1 a 6 per l'utente
+// let human_dice = Math.floor((Math.random() * 6 + 1));
+// console.log(`Il numero genrato per l'utente è : ${human_dice}`);
+// // dichiaro una variabile che genera un numero randomico per il computer
+// let computer_dice = Math.floor((Math.random() * 6 + 1));
+// console.log(`Il numero genrato per il computer è : ${computer_dice}`);
 
 
-// Esercizio 10 calcolo del prezzo del biglietto del treno 
+// if (human_dice > computer_dice) {
+//     console.log(`L' utente vince con un punteggio di ${human_dice} contro ${computer_dice}`); // condizione in cui vince l'utente
+// } else if (human_dice < computer_dice) {
+//     console.log(`Il computer vince con un punteggio ${computer_dice} conntro ${human_dice}`); // condizione in cui vince il computer
+// } else {
+//     console.log(`Pareggio! Entrambi hanno ottenuto ${human_dice}`); // altrimenti preggio
+// }
+
+
+// Esercizio 10 calcolo del prezzo del biglietto del treno
 // chiedi all'utente di inserire i kilometri che vuole percorrere e la sua età
 // sulla base di queste informazioni :
 // il prezzo del biglietto è definito in base ai km (0.21 al km)
@@ -334,36 +357,36 @@ if (human_dice > computer_dice) {
 // l'output del prezzo va messo in forma umana con massimo due decimali, per indicare i centesimi sul prezzo
 
 // variabile per chiedere l'età al cliente metodo (parseInt converto da stringa a valore intero)
-let human_age = parseInt(prompt("Inserisci la tua età per calcolare lo sconto sul prezzo del bilietto"), 10);
+// let human_age = parseInt(prompt("Inserisci la tua età per calcolare lo sconto sul prezzo del bilietto"), 10);
 // variabile per chiedere al cliente quanti km vuole percorrere (parseInt)
-let human_kilo_meters = parseInt(prompt("Inserisci i kilometri che vuoi percorrere"), 10);
+// let human_kilo_meters = parseInt(prompt("Inserisci i kilometri che vuoi percorrere"), 10);
 // prezzo base del biglietto a km
-let ticket_km_price = 0.21;
-// percentuale sconto predefinita
-let perc_discount = 0;
-// dichiaro variabile prezzo vinale a cui assegno valore 0
-let final_price = 0;
+// let ticket_km_price = 0.21;
+// // percentuale sconto predefinita
+// let perc_discount = 0;
+// // dichiaro variabile prezzo vinale a cui assegno valore 0
+// let final_price = 0;
 
-// condizione con la quale controllo se l'utente sta inserendo dei dati validi
-if (isNaN(human_age) || isNaN(human_kilo_meters) || human_age <= 0 || human_kilo_meters <= 0) {
-    console.log("Per favore inserisci dai dati validi")
-} else if (human_age < 18) { // sconto per i minorenni
-    perc_discount = 20;
-} else if (human_age > 65) { // sconto per gli over 65
-    perc_discount = 40;
-}
+// // condizione con la quale controllo se l'utente sta inserendo dei dati validi
+// if (isNaN(human_age) || isNaN(human_kilo_meters) || human_age <= 0 || human_kilo_meters <= 0) {
+//     console.log("Per favore inserisci dai dati validi")
+// } else if (human_age < 18) { // sconto per i minorenni
+//     perc_discount = 20;
+// } else if (human_age > 65) { // sconto per gli over 65
+//     perc_discount = 40;
+// }
 
-// contollo che ci sia la condizione per effetuare lo sconto
-if (perc_discount != 0) {
-    // dichiaro una variabile in cui stabilisco il prezzo base del biglietto (km percorsi per prezzo base)
-    let base_price = human_kilo_meters * ticket_km_price;
-    // dichiaro una variabile per calocale la percentuale di sconto
-    let discount_amount = base_price * perc_discount / 100;
-    // variabile con il calcolo del prezzo finale 
-    final_price = base_price - discount_amount;
-}
+// // contollo che ci sia la condizione per effettuare lo sconto
+// if (perc_discount != 0) {
+//     // dichiaro una variabile in cui stabilisco il prezzo base del biglietto (km percorsi per prezzo base)
+//     let base_price = human_kilo_meters * ticket_km_price;
+//     // dichiaro una variabile per calocale la percentuale di sconto
+//     let discount_amount = base_price * perc_discount / 100;
+//     // variabile con il calcolo del prezzo finale
+//     final_price = base_price - discount_amount;
+// }
 
-console.log(`Il prezzo finale del biglieto è di : ${final_price.toFixed(2)} €`);
+// console.log(`Il prezzo finale del biglieto è di : ${final_price.toFixed(2)} €`);
 
 
 
@@ -376,6 +399,22 @@ console.log(`Il prezzo finale del biglieto è di : ${final_price.toFixed(2)} €
 // "Il numero è multiplo di 3" se è divisibile per 3,
 // "Il numero è multiplo di 5" se è divisibile per 5,
 // "Il numero è multiplo sia di 3 che di 5" se è divisibile per entrambi.
+
+// let human_number = parseInt(prompt('Insrisci un numero'), 10); // permetto all'utente di inserire un valore tramite il prompt
+
+// if (isNaN(human_number)) { // condizione di controllo se il valore inserito nel promp non è un numero allora
+//     //  mostro in console il messaggio di inserire un valore valido
+//     console.log('Prego di inserire un numero valido');
+// } else if (human_number % 3 === 0 && human_number % 5 === 0) { // condizione con operatore binario and (entro in questo blocco se entrmbe le condizioni sono vere)
+//     console.log('Il numero inserito è un multiplo sia di 3 che di 5');
+// } else if (human_number % 3 === 0) {
+//     console.log('Il numero è multiplo di 3');
+// } else if (human_number % 5 === 0) {
+//     console.log('Il numero è multiplo di 5')
+// } else {
+//     console.log('Il numero inserito non è multiplo ne di 3 ne di 5');
+// }
+
 
 
 
