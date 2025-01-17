@@ -16,3 +16,7 @@
     text-decoration: underline;
     color: red;
 }
+
+.p-0 {
+    padding: 0;
+}

@@ -299,8 +299,13 @@ maggiore_minore_btn.addEventListener('click', function () {
 
 // ESERCIZIO 4 CALCOLATRICE SEMPLICE
 
-// recupero il bottone
+// creo una variabile a cui assegno un array vuoto che andra a contenere lo storico delle operazioni
+let storico_operazioni = [];
+
+// recupero il bottone per avviare
 let btn_somma_numerica = document.getElementById('btn-somma-numerica');
+// recuopero il bottone per il reset
+let btn_somma_numerica_reset = document.getElementById('btn-somma-numerica-reset')
 // metto il bottone in attesa di un evento click
 btn_somma_numerica.addEventListener('click', function () {
     // al click recuopero i valori dei campi di input inseriti dall'utente
@@ -315,11 +320,58 @@ btn_somma_numerica.addEventListener('click', function () {
         messaggio_somma.innerText = 'Inserisci un dato valido';
         messaggio_somma.classList.add('text-danger');
     } else {
+        // dichiaro una variabile che somma i valori catturati nell'input
         let somma_algebrica = somma_uno + somma_due;
-        messaggio_somma.innerText = `Risultato : ${somma_uno} + ${somma_due} = ${somma_algebrica}`;
-        messaggio_somma.classList.add('text-green');
+        // variabile a cui assegno il messaggio attraverso l'utilizzo del template literal
+        let operazione = `${somma_uno} + ${somma_due} = ${somma_algebrica}`;
+        // inietto al messaggio con il template literal il valore di operazione
+        messaggio_somma.innerText = `Risultato: ${operazione}`;
+        // aggingo all'array i risultati con il metodo push che aggoinge in coda
+        storico_operazioni.push(operazione);
+        // mostro lo storico delle operazioni a video
+        // recupero l'elemento ul dal dom 
+        let ul_storico_operazioni = document.getElementById('storico-somma');
+        // svuoto la lista prima di aggiornarla
+        ul_storico_operazioni.innerHTML = '';
+        // eseguo un ciclo for sulla lunghezza dell'array operazioni
+        for (let i = 0; i < storico_operazioni.length; i++) {
+            // creo un nuovo elemento lista
+            let nuovo_elemento_li = document.createElement('li');
+            // inietto al nuovo elemento creato il valore dell'array storico in posizione [i]
+            nuovo_elemento_li.innerText = storico_operazioni[i];
+            // aggiungo una classe ai nuovi elementi creati attraverso classList
+            nuovo_elemento_li.classList.add('list-unstyled');
+            ul_storico_operazioni.classList.add('p-0');
+            // appendo alla ul l'elemnto lista creato
+            ul_storico_operazioni.appendChild(nuovo_elemento_li);
+        }
 
     }
+});
+
+// metto il reset btn in attesa di un evento 
+
+btn_somma_numerica_reset.addEventListener('click', function () {
+
+    // recuoero l'elemento che contiene il messaggio
+    let messaggio_somma = document.getElementById('somma-numerica');
+    // svuoto il messaggio di risultato 
+    messaggio_somma.innerText = '';
+
+    // svuoto tutte le classi del messaggio
+    messaggio_somma.classList = '';
+
+    // recupero la lista che contiene lo storico
+    let ul_storico_operazioni = document.getElementById('storico-somma');
+    // svuoto la lista
+    ul_storico_operazioni.innerHTML = '';
+
+    // svuoto l'array
+    storico_operazioni = [];
+
+
+
+
 });
 
 
