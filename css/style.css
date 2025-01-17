@@ -12,6 +12,10 @@
     color: rgb(7, 119, 7);
 }
 
+.text-orange {
+    color: rgb(255, 115, 0);
+}
+
 .underline {
     text-decoration: underline;
     color: red;

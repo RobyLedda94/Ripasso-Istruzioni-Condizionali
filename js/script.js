@@ -305,7 +305,7 @@ let storico_operazioni = [];
 // recupero il bottone per avviare
 let btn_somma_numerica = document.getElementById('btn-somma-numerica');
 // recuopero il bottone per il reset
-let btn_somma_numerica_reset = document.getElementById('btn-somma-numerica-reset')
+let btn_somma_numerica_reset = document.getElementById('btn-somma-numerica-reset');
 // metto il bottone in attesa di un evento click
 btn_somma_numerica.addEventListener('click', function () {
     // al click recuopero i valori dei campi di input inseriti dall'utente
@@ -344,6 +344,8 @@ btn_somma_numerica.addEventListener('click', function () {
             ul_storico_operazioni.classList.add('p-0');
             // appendo alla ul l'elemnto lista creato
             ul_storico_operazioni.appendChild(nuovo_elemento_li);
+            // console.log(`${i} ${storico_operazioni[i]}`);
+
         }
 
     }
@@ -352,26 +354,18 @@ btn_somma_numerica.addEventListener('click', function () {
 // metto il reset btn in attesa di un evento 
 
 btn_somma_numerica_reset.addEventListener('click', function () {
-
     // recuoero l'elemento che contiene il messaggio
     let messaggio_somma = document.getElementById('somma-numerica');
     // svuoto il messaggio di risultato 
     messaggio_somma.innerText = '';
-
     // svuoto tutte le classi del messaggio
     messaggio_somma.classList = '';
-
     // recupero la lista che contiene lo storico
     let ul_storico_operazioni = document.getElementById('storico-somma');
     // svuoto la lista
     ul_storico_operazioni.innerHTML = '';
-
     // svuoto l'array
     storico_operazioni = [];
-
-
-
-
 });
 
 
@@ -388,8 +382,47 @@ btn_somma_numerica_reset.addEventListener('click', function () {
 //     console.log('Il risultato è' + ' ' + risultato_somma);
 // }
 
+// ----------------------------------------------------------------------------------------------
+
 
 // ESERCIZIO NUMERO 5 VOTO SCOLASTICO
+
+// recuper il bottone
+let voto_btn = document.getElementById('btn-voto');
+// evento click per il bottone
+voto_btn.addEventListener('click', function () {
+    // recuoero l'elemento catturo il valore inserito dall'utente e lo converto in valore numerico
+    let input_voto = parseInt(document.getElementById('voto-scolastico').value, 10);
+    // recupero l'elemento che mostra il messaggio
+    let messaggio_voto = document.getElementById('risultato-voto');
+    // svuoto le classi che assegno all'elemento messaggio per evitare contrasti
+    messaggio_voto.classList = '';
+    // svuoto i valori inseriti nel campo input
+    document.getElementById('voto-scolastico').value = '';
+    // condizione di controllo sul dato
+    if (isNaN(input_voto) || input_voto < 0 || input_voto > 10) {
+        // inietto dinamicamente la seguente stringa all'elemento messaggio
+        messaggio_voto.innerText = 'Inserire un dato valido';
+        // aggiungo una classe per personalizzare il messaggio d'errore
+        messaggio_voto.classList.add('text-danger');
+    } else if (input_voto >= 0 && input_voto <= 5) {
+        // inietto con il template literal il messaggio riportando il valore catturato nell'input
+        messaggio_voto.innerText = `Il voto con punteggio : ${input_voto} non è sufficente`;
+        messaggio_voto.classList.add('text-warning');
+    } else if (input_voto === 6) {
+        messaggio_voto.innerText = `Il voto con punteggio : ${input_voto} è sufficente`;
+        messaggio_voto.classList.add('text-orange');
+    } else if (input_voto === 7 || input_voto === 8) {
+        messaggio_voto.innerText = `Il voto con punteggio : ${input_voto} è buono`;
+        messaggio_voto.classList.add('text-primary');
+    } else if (input_voto === 9 || input_voto === 10) {
+        messaggio_voto.innerText = `Il voto con punteggio : ${input_voto} è ottimo`;
+        messaggio_voto.classList.add('text-green');
+    }
+});
+
+
+
 // "Insufficiente" se il voto è tra 0 e 5,
 // "Sufficiente" se il voto è 6,
 // "Buono" se il voto è 7 o 8,
@@ -411,6 +444,10 @@ btn_somma_numerica_reset.addEventListener('click', function () {
 // } else { // altrimenti il voto non esiste (esempio inserisco da 11 in su)
 //     console.log('Il voto inserito non è valdo');
 // }
+
+
+
+
 
 
 // ESERCIZIO 6 ACCESSO AL SITO
