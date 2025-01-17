@@ -274,8 +274,10 @@ maggiore_minore_btn.addEventListener('click', function () {
         maggiore_minore_messaggio.classList.add('text-green');
 
     }
-
 });
+
+
+// ESERCIZIO SVOLTO CON IL PROMPT
 
 // dichiaro le variabili con cui chiedo all'utente di inserire un valore numerico tramite il prompt (converto il valore in numerico con il parseInt)
 // let num_one = parseInt(prompt('Inserisci il primo numero'), 10);
@@ -292,7 +294,35 @@ maggiore_minore_btn.addEventListener('click', function () {
 // }
 
 
+// -----------------------------------------------------------------------------------------------------------
+
+
 // ESERCIZIO 4 CALCOLATRICE SEMPLICE
+
+// recupero il bottone
+let btn_somma_numerica = document.getElementById('btn-somma-numerica');
+// metto il bottone in attesa di un evento click
+btn_somma_numerica.addEventListener('click', function () {
+    // al click recuopero i valori dei campi di input inseriti dall'utente
+    let somma_uno = parseInt(document.getElementById('somma-uno').value, 10);
+    let somma_due = parseInt(document.getElementById('somma-due').value, 10);
+    // al click recupero anche l'elemento che mostra un messaggio
+    let messaggio_somma = document.getElementById('somma-numerica');
+    // svuoto le classi del messaggio
+    messaggio_somma.classList = '';
+    // istruzione condizionale di controllo sul dato inserito 
+    if (isNaN(somma_uno) || isNaN(somma_due) || somma_uno < 0 || somma_due < 0) {
+        messaggio_somma.innerText = 'Inserisci un dato valido';
+        messaggio_somma.classList.add('text-danger');
+    } else {
+        let somma_algebrica = somma_uno + somma_due;
+        messaggio_somma.innerText = `Risultato : ${somma_uno} + ${somma_due} = ${somma_algebrica}`;
+        messaggio_somma.classList.add('text-green');
+
+    }
+});
+
+
 
 // dichiaro le variabili con cui chiedo all'utente di inserire un valore numerico tramite prompt (e utilizzo il parseInt per conertire il tipo di valore inserito dall'utente in numero)
 
