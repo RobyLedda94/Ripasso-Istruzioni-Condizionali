@@ -452,6 +452,61 @@ voto_btn.addEventListener('click', function () {
 
 // ESERCIZIO 6 ACCESSO AL SITO
 
+
+
+// Recupero il bottone dal dom
+let btn_accesso = document.getElementById('btn-accesso');
+
+// creo gli array sui quali effettuerò il confronto per l'accesso
+
+let array_userName = ['admin'];
+let array_password = [1234];
+
+btn_accesso.addEventListener('click', function () {
+    // recupero l'elemento input dal dom catturo il valore di campo input utizzo 
+    let input_user_name = document.getElementById('user-name').value.toLowerCase();
+    let input_password = parseInt(document.getElementById('password').value, 10);
+    // recupero l'elemnto messaggio
+    let messaggio_accesso = document.getElementById('messaggio-accesso');
+    // svuoto le classi del messaggio
+    messaggio_accesso.classList = '';
+
+    // verifica preliminare dei dati che sta inserendo l'utente
+    if (!input_user_name || input_password === '') {
+        messaggio_accesso.innerText = `I dati non sono validi`;
+        messaggio_accesso.classList.add('text-danger');
+    } else if (isNaN(input_password)) {
+        messaggio_accesso.innerText = `La password deve essere un numero`;
+        messaggio_accesso.classList.add('text-danger');
+    }
+
+
+    // variabile flag che tiene traccia se il login e valido impostata a false
+    let accesso_valido = false;
+
+    // eseguo il ciclo for
+    for (let i = 0; i < array_userName.length; i++) {
+        if (array_userName[i] === input_user_name && array_password[i] === input_password) {
+            accesso_valido = true;
+        }
+    };
+
+    // condizione che verifica se l'accesso è validato
+
+    if (accesso_valido) {
+        messaggio_accesso.innerText = `I dati sono validi`;
+        messaggio_accesso.classList.add('text-green');
+    } else {
+        messaggio_accesso.innerText = `I dati non sono validi`;
+        messaggio_accesso.classList.add('text-danger');
+    }
+
+
+
+});
+
+
+
 // Dichiaro le variabili per chiedere all'utente user_name e password, (restituisce valori formato striga)
 // let user_name = prompt('Inserisci il tuo nome utente');
 // let password = prompt('Inserisci la password');
